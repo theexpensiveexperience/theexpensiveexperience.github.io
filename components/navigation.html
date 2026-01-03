@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Practical Other Raccoon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: "Source Sans 3";
+        font-size: 1rem;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: undefined;
+        text-transform: undefined;
+        letter-spacing: 0.02em;
+        line-height: 1.6;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+
+        fill: var(--color-on-surface);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="../style.css" />
+    <div>
+      <link href="./navigation.css" rel="stylesheet" />
+      <div class="navigation-container1">
+        <nav class="navigation-wrapper">
+          <div class="navigation-container">
+            <div class="navigation-brand-section">
+              <a href="Homepage">
+                <div class="navigation-logo-link">
+                  <span class="navigation-brand-name section-title">
+                    FloatPress
+                  </span>
+                </div>
+              </a>
+              <button
+                id="navigation-mobile-toggle"
+                aria-expanded="false"
+                aria-label="Toggle Menu"
+                class="navigation-toggle-btn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="navigation-main-content">
+              <div class="navigation-desktop-links">
+                <a href="Homepage">
+                  <div class="navigation-link"><span>Stories</span></div>
+                </a>
+                <a href="#">
+                  <div class="navigation-link"><span>Design</span></div>
+                </a>
+                <a href="#">
+                  <div class="navigation-link"><span>Technology</span></div>
+                </a>
+                <a href="#">
+                  <div class="navigation-link"><span>Lifestyle</span></div>
+                </a>
+              </div>
+              <div class="navigation-actions">
+                <button aria-label="Search" class="navigation-search-trigger">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21l-4.34-4.34"></path>
+                  </svg>
+                </button>
+                <a href="#">
+                  <div class="navigation-cta btn btn-primary btn-sm">
+                    <span>Subscribe</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div id="navigation-mobile-overlay" class="navigation-mobile-overlay">
+          <div class="navigation-overlay-header">
+            <a href="Homepage">
+              <div class="navigation-logo-link">
+                <span class="navigation-brand-name section-title">
+                  FloatPress
+                </span>
+              </div>
+            </a>
+            <button
+              id="navigation-close-overlay"
+              aria-label="Close Menu"
+              class="navigation-close-btn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path d="M18 6L6 18M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="navigation-overlay-content">
+            <div class="navigation-mobile-nav-list">
+              <a href="Homepage">
+                <div class="navigation-mobile-link">
+                  <span>Featured Stories</span>
+                </div>
+              </a>
+              <a href="#">
+                <div class="navigation-mobile-link">
+                  <span>Design Deep-dives</span>
+                </div>
+              </a>
+              <a href="#">
+                <div class="navigation-mobile-link">
+                  <span>Tech &amp; Future</span>
+                </div>
+              </a>
+              <a href="#">
+                <div class="navigation-mobile-link">
+                  <span>Modern Lifestyle</span>
+                </div>
+              </a>
+              <a href="#">
+                <div class="navigation-mobile-link">
+                  <span>About the Journal</span>
+                </div>
+              </a>
+            </div>
+            <div class="navigation-overlay-footer">
+              <p class="navigation-overlay-tagline section-content">
+                Curating the floating world of modern design.
+              </p>
+              <div class="navigation-overlay-actions">
+                <a href="#">
+                  <div class="navigation-mobile-cta btn btn-primary btn-lg">
+                    <span>Join the Community</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navigation-container2">
+          <div class="navigation-container3">
+            <style>
+              @media (prefers-reduced-motion: reduce) {
+              .navigation-mobile-overlay {
+                transition: opacity 0.2s ease;
+                transform: none;
+              }
+              .navigation-mobile-link:hover {
+                transform: none;
+              }
+              }
+            </style>
+          </div>
+        </div>
+        <div class="navigation-container4">
+          <div class="navigation-container5">
+            <script defer="" data-name="navigation-logic">
+              document.addEventListener('DOMContentLoaded', function() {
+                (function(){
+                  const mobileToggle = document.getElementById("navigation-mobile-toggle")
+                  const closeOverlay = document.getElementById("navigation-close-overlay")
+                  const mobileOverlay = document.getElementById("navigation-mobile-overlay")
+                  const body = document.body
+
+                  const openMenu = () => {
+                    mobileOverlay.classList.add("is-active")
+                    mobileToggle.setAttribute("aria-expanded", "true")
+                    body.style.overflow = "hidden"
+                  }
+
+                  const closeMenu = () => {
+                    mobileOverlay.classList.remove("is-active")
+                    mobileToggle.setAttribute("aria-expanded", "false")
+                    body.style.overflow = ""
+                  }
+
+                  mobileToggle.addEventListener("click", openMenu)
+                  closeOverlay.addEventListener("click", closeMenu)
+
+                  mobileOverlay.addEventListener("click", (e) => {
+                    if (e.target === mobileOverlay) {
+                      closeMenu()
+                    }
+                  })
+
+                  const mobileLinks = mobileOverlay.querySelectorAll(".navigation-mobile-link")
+                  mobileLinks.forEach((link) => {
+                    link.addEventListener("click", closeMenu)
+                  })
+
+                  window.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape" && mobileOverlay.classList.contains("is-active")) {
+                      closeMenu()
+                    }
+                  })
+                })()
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
