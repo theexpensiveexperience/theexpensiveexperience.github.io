@@ -4,6 +4,24 @@
 
 This repository holds the official Jekyll version of the Clean Blog theme on Start Bootstrap!
 
+---
+
+## About this portfolio
+
+**Owner:** theexpensiveexperience
+
+**Purpose:** The main purpose of this portfolio is to share my experiences and stories, and to showcase my profile and projects — a visual, personal space for my writing and work. 🎯 ✍️ 👤
+
+[![Site Preview](screenshot.png)](https://theexpensiveexperience.github.io)
+
+### Quick links
+
+- **Live site:** https://theexpensiveexperience.github.io
+- **Highlights:** posts, about page, contact form, and a gallery of images.
+
+> Feel free to edit the content, images, and `_config.yml` to personalize the site further.
+
+
 ## Preview
 
 [![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/screenshots/themes/clean-blog-jekyll.png)](http://StartBootstrap.github.io/startbootstrap-clean-blog-jekyll/)
