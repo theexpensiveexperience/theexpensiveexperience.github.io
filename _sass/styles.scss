@@ -1,2 +1,20 @@
 // Import Core Clean Blog SCSS
 @import "../assets/vendor/startbootstrap-clean-blog/scss/styles.scss";
+
+// Custom overrides
+// Increase navbar link size and make brand (site title) more prominent
+.navbar .nav-link {
+  font-size: 1.1rem; /* slightly larger navigation links */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.6rem; /* larger brand/title */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Add a small responsive tweak: slightly smaller brand on small screens */
+@media (max-width: 576px) {
+  .navbar .navbar-brand { font-size: 1.25rem; }
+  .navbar .nav-link { font-size: 1rem; }
+}
