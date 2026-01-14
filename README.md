@@ -4,8 +4,6 @@
 
 **Purpose:** The main purpose of this portfolio is to share my experiences and stories, and to showcase my profile and projects — a visual, personal space for my writing and work. 🎯 ✍️ 👤
 
-[![Site Preview](screenshot.png)](https://theexpensiveexperience.github.io)
-
 ### Quick links
 
 - **Live site:** https://theexpensiveexperience.github.io
