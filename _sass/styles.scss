@@ -42,15 +42,16 @@
   display: flex;
   gap: 0.25rem;
   padding: 0.25rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 50px;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease;
 }
 
-/* Solid black nav background when scrolled */
+/* Nav background when scrolled */
 #mainNav.navbar-shrink .navbar-nav {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Sliding highlight indicator */
@@ -70,23 +71,35 @@
   opacity: 1;
 }
 
-/* Navigation links */
+/* Navigation links - WHITE text (dark background behind nav) */
 #mainNav .nav-link {
   position: relative;
   z-index: 1;
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #fff !important;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.6rem 1.25rem !important;
   border-radius: 50px;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: color 0.3s ease, transform 0.2s ease, background 0.3s ease;
   white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 #mainNav .nav-link:hover {
   color: #fff !important;
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+/* When scrolled - keep white text on black bg */
+#mainNav.navbar-shrink .nav-link {
+  color: #fff !important;
+  text-shadow: none;
+}
+
+#mainNav.navbar-shrink .nav-link:hover {
+  background: rgba(0, 133, 161, 0.5);
 }
 
 /* Active link style */
@@ -175,12 +188,17 @@
   }
 }
 
-/* Navbar brand styling */
+/* Navbar brand styling - WHITE text */
 #mainNav .navbar-brand {
   color: #fff !important;
   font-weight: 700;
   letter-spacing: 0.5px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+#mainNav.navbar-shrink .navbar-brand {
+  text-shadow: none;
 }
 
 #mainNav .navbar-brand:hover {
