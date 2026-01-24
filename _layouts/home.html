@@ -4,7 +4,8 @@ layout: default
 
 <!-- Page Header -->
 {% if page.background %}
-<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+<header class="masthead"
+  style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% else %}
   <header class="masthead">
     {% endif %}
@@ -24,43 +25,64 @@ layout: default
   </header>
 
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+    <!-- Sticky Section Layout Wrapper -->
+    <div class="sticky-section-wrapper">
 
-        {{ content }}
+      <!-- Sticky Sidebar -->
+      <aside class="sticky-sidebar d-none d-lg-block">
+        <h4>Quick Nav</h4>
+        <ul>
+          {% for post in site.posts limit: 5 %}
+          <li>
+            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+              {{ post.title | truncatewords: 5 }}
+            </a>
+          </li>
+          {% endfor %}
+          <li><a href="{{ '/posts' | relative_url }}">View All →</a></li>
+        </ul>
+      </aside>
 
-        <!-- Home Post List -->
-        {% for post in site.posts limit : 5 %}
+      <!-- Scrollable Content -->
+      <div class="scroll-content">
+        <div class="col-lg-10 mx-auto">
 
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
-          </p>
-        </article>
+          {{ content }}
 
-        <hr>
+          <!-- Home Post List -->
+          {% for post in site.posts limit : 5 %}
 
-        {% endfor %}
+          <div class="scroll-section">
+            <article class="post-preview">
+              <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.subtitle %}
+                <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                {% else %}
+                <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+                {% endif %}
+              </a>
+              <p class="post-meta">Posted by
+                {% if post.author %}
+                {{ post.author }}
+                {% else %}
+                {{ site.author }}
+                {% endif %}
+                on
+                {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
+              </p>
+            </article>
+          </div>
 
-        <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+          {% endfor %}
+
+          <!-- Pager -->
+          <div class="clearfix scroll-section">
+            <a class="btn btn-primary float-right" href="{{ '/posts' | relative_url }}">View All Posts &rarr;</a>
+          </div>
+
         </div>
-
       </div>
+
     </div>
   </div>

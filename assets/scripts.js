@@ -1,3 +1,28 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+// Intersection Observer for scroll section fade-in animations
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollSections = document.querySelectorAll('.scroll-section');
+
+  if (scrollSections.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    scrollSections.forEach(function (section) {
+      observer.observe(section);
+    });
+  }
+});

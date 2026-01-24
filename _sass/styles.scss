@@ -18,3 +18,122 @@
   .navbar .navbar-brand { font-size: 1.25rem; }
   .navbar .nav-link { font-size: 1rem; }
 }
+
+/* ============================================
+   Sticky Section Layout Scroll Effect
+   Based on: https://prismic.io/blog/css-scroll-effects (#7)
+   ============================================ */
+
+/* Enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main wrapper for sticky layout */
+.sticky-section-wrapper {
+  display: flex;
+  gap: 2rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Sticky sidebar that stays fixed while scrolling */
+.sticky-sidebar {
+  position: sticky;
+  top: 100px; /* Below navbar */
+  height: fit-content;
+  flex: 0 0 220px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.sticky-sidebar h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #212529;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sticky-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sticky-sidebar li {
+  margin-bottom: 0.75rem;
+}
+
+.sticky-sidebar a {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.sticky-sidebar a:hover {
+  color: #0085A1;
+  transform: translateX(5px);
+}
+
+/* Main scrollable content area */
+.scroll-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Individual scroll sections with fade-in animation */
+.scroll-section {
+  min-height: 30vh;
+  padding: 1.5rem 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Post preview enhancements for scroll effect */
+.scroll-section .post-preview {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-section .post-preview:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Responsive: Stack layout on mobile */
+@media (max-width: 991px) {
+  .sticky-section-wrapper {
+    flex-direction: column;
+  }
+  
+  .sticky-sidebar {
+    position: relative;
+    top: 0;
+    flex: none;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .scroll-section {
+    opacity: 1;
+    transform: none;
+  }
+}
