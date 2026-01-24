@@ -16,23 +16,24 @@
    A sliding highlight that follows hovered items
    ============================================ */
 
-/* Main navigation container */
+/* Main navigation container - TRANSPARENT at top */
 #mainNav {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 0.75rem 0;
-  transition: background 0.3s ease, padding 0.3s ease;
+  background: transparent;
+  padding: 1rem 0;
+  transition: background 0.4s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* When scrolled - SOLID BLACK background */
 #mainNav.navbar-shrink {
-  background: rgba(17, 17, 17, 0.98);
+  background: rgba(0, 0, 0, 0.95);
   padding: 0.5rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Navigation list with anchor positioning */
@@ -41,8 +42,15 @@
   display: flex;
   gap: 0.25rem;
   padding: 0.25rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Solid black nav background when scrolled */
+#mainNav.navbar-shrink .navbar-nav {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Sliding highlight indicator */
