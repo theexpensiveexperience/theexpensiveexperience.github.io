@@ -3,21 +3,182 @@
 
 // Custom overrides
 // Increase navbar link size and make brand (site title) more prominent
-.navbar .nav-link {
-  font-size: 1.1rem; /* slightly larger navigation links */
-}
-
 .navbar .navbar-brand {
-  font-size: 1.6rem; /* larger brand/title */
+  font-size: 1.6rem;
+  /* larger brand/title */
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-/* Add a small responsive tweak: slightly smaller brand on small screens */
-@media (max-width: 576px) {
-  .navbar .navbar-brand { font-size: 1.25rem; }
-  .navbar .nav-link { font-size: 1rem; }
+/* ============================================
+   CSS Anchor Positioning Navigation Effect
+   Based on: freefrontend.com (Kevin Powell)
+   A sliding highlight that follows hovered items
+   ============================================ */
+
+/* Main navigation container */
+#mainNav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 0;
+  transition: background 0.3s ease, padding 0.3s ease;
 }
+
+#mainNav.navbar-shrink {
+  background: rgba(17, 17, 17, 0.98);
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation list with anchor positioning */
+#mainNav .navbar-nav {
+  position: relative;
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+}
+
+/* Sliding highlight indicator */
+#mainNav .navbar-nav::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(135deg, #0085A1 0%, #00b4db 100%);
+  border-radius: 50px;
+  z-index: 0;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Spring-like bounce easing */
+}
+
+/* Show highlight on hover */
+#mainNav .navbar-nav:hover::before {
+  opacity: 1;
+}
+
+/* Navigation links */
+#mainNav .nav-link {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem !important;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+#mainNav .nav-link:hover {
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* Active link style */
+#mainNav .nav-item.active .nav-link,
+#mainNav .nav-link.active {
+  color: #fff !important;
+  background: linear-gradient(135deg, #0085A1 0%, #00b4db 100%);
+  border-radius: 50px;
+}
+
+/* Anchor Positioning for sliding effect (Modern browsers) */
+@supports (anchor-name: --nav-anchor) {
+  #mainNav .nav-link:hover {
+    anchor-name: --nav-anchor;
+  }
+
+  #mainNav .navbar-nav:has(:not(:hover)) {
+    anchor-name: --nav-anchor;
+  }
+
+  #mainNav .navbar-nav::before {
+    position-anchor: --nav-anchor;
+    top: anchor(top);
+    left: anchor(left);
+    right: anchor(right);
+    bottom: anchor(bottom);
+    width: auto;
+    height: auto;
+  }
+}
+
+/* Fallback for browsers without anchor positioning */
+@supports not (anchor-name: --nav-anchor) {
+  #mainNav .nav-link:hover {
+    background: linear-gradient(135deg, #0085A1 0%, #00b4db 100%);
+    color: #fff !important;
+  }
+
+  #mainNav .navbar-nav::before {
+    display: none;
+  }
+}
+
+/* Mobile menu toggle */
+#mainNav .navbar-toggler {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+#mainNav .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(0, 133, 161, 0.5);
+}
+
+#mainNav .navbar-toggler .fa-bars {
+  margin-left: 0.5rem;
+}
+
+/* Responsive navigation */
+@media (max-width: 991px) {
+  #mainNav .navbar-nav {
+    flex-direction: column;
+    background: transparent;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+  }
+
+  #mainNav .navbar-nav::before {
+    display: none;
+  }
+
+  #mainNav .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px;
+  }
+
+  #mainNav .nav-link:hover {
+    background: rgba(0, 133, 161, 0.3);
+  }
+
+  #mainNav .navbar-brand {
+    font-size: 1.25rem;
+  }
+}
+
+/* Navbar brand styling */
+#mainNav .navbar-brand {
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+#mainNav .navbar-brand:hover {
+  opacity: 0.9;
+}
+
 
 /* ============================================
    Sticky Section Layout Scroll Effect
@@ -40,7 +201,8 @@ html {
 /* Sticky sidebar that stays fixed while scrolling */
 .sticky-sidebar {
   position: sticky;
-  top: 100px; /* Below navbar */
+  top: 100px;
+  /* Below navbar */
   height: fit-content;
   flex: 0 0 220px;
   padding: 1.5rem;
@@ -94,8 +256,8 @@ html {
   padding: 1.5rem 0;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-section.visible {
@@ -123,7 +285,7 @@ html {
   .sticky-section-wrapper {
     flex-direction: column;
   }
-  
+
   .sticky-sidebar {
     position: relative;
     top: 0;
@@ -131,7 +293,7 @@ html {
     width: 100%;
     margin-bottom: 2rem;
   }
-  
+
   .scroll-section {
     opacity: 1;
     transform: none;
