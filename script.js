@@ -60,7 +60,7 @@ function runBoot(idx) {
 
 function skipBoot() { booting = false; doTransition(); }
 
-/* ─── WIPE TRANSITION ────────────────────────────────────── */
+/* ─── WIPE TRANSITION ────────────────────────────────── */
 function doTransition() {
   $('skip-hint').style.display = 'none';
   const w = $('wipe');
@@ -128,11 +128,6 @@ function revealBody() {
 /* ─── AMBIENT GLITCH ─────────────────────────────────────── */
 function startAmbient() {
   setInterval(() => {
-    if (Math.random() < 0.08) {
-      const f = $('flicker');
-      f.style.opacity = '0.015';
-      setTimeout(() => f.style.opacity = '0', 65);
-    }
     if (Math.random() < 0.04) {
       const tags = document.querySelectorAll('.tag');
       const t = tags[Math.random() * tags.length | 0];
@@ -265,11 +260,10 @@ const TRANS = {
     'tag-vi': 'Vietnamesisch — Muttersprache', 'tag-en': 'Englisch — C1/B2', 'tag-de': 'Deutsch — B2',
     'edu1-name': 'Technische Assistenten für Informatik', 'edu1-meta': '09/2025 — heute · Lichtenfels, Bayern',
     'edu1-desc1': 'Berufsschulausbildung mit Schwerpunkt Systemintegration, Netzwerktechnik und Softwareentwicklung.',
-    'edu1-desc2': 'Sehr gute Leistungen in den Fächern Mathematik. Gute Leistungen in den Fächern Anwendungsentwicklung, Deutsch und Englisch.',
     'edu1-chip1': 'laufend',
     'edu2-name': 'Studienkolleg — Hochschule Coburg', 'edu2-meta': '08/2024 — 08/2025 · Coburg, Bayern',
     'edu2-desc1': 'Studienvorbereitendes Kolleg; abgeschlossenes Brückenjahr zwischen vietnamesischem Schulabschluss und deutschem Hochschulsystem.',
-    'edu2-desc2': 'Gute Leistungen in den Fächern Mathematik und Physik.', 'edu2-chip1': 'abgeschlossen',
+    'edu2-chip1': 'abgeschlossen',
     'edu3-name': 'Realschulabschluss — Le Quy Don Oberschule',
     'edu3-desc': 'Mittlerer Schulabschluss (Realschulabschluss).', 'edu3-chip1': 'abgeschlossen',
     'proj1-name': 'IT Home Lab — Virtualisierung & Sicherheit',
@@ -290,11 +284,10 @@ const TRANS = {
     'tag-vi': 'Vietnamese — Native', 'tag-en': 'English — C1/B2', 'tag-de': 'German — B2',
     'edu1-name': 'Technical IT Assistant', 'edu1-meta': '09/2025 — present · Lichtenfels, Bavaria',
     'edu1-desc1': 'Vocational school training with a focus on system integration, network technology, and software development.',
-    'edu1-desc2': 'Excellent grades in Mathematics. Good grades in Application Development, German, and English.',
     'edu1-chip1': 'ongoing',
     'edu2-name': 'Preparatory College — Coburg University', 'edu2-meta': '08/2024 — 08/2025 · Coburg, Bavaria',
     'edu2-desc1': 'University preparatory college; completed bridging year between Vietnamese secondary education and the German university system.',
-    'edu2-desc2': 'Good grades in Mathematics and Physics.', 'edu2-chip1': 'completed',
+    'edu2-chip1': 'completed',
     'edu3-name': 'Secondary School Certificate — Le Quy Don High School',
     'edu3-desc': 'Secondary school graduation (Realschulabschluss equivalent).', 'edu3-chip1': 'completed',
     'proj1-name': 'IT Home Lab — Virtualization & Security',
@@ -396,5 +389,3 @@ function typeOutput(el, text) {
 
 /* ─── KICK OFF ───────────────────────────────────────────── */
 runBoot(0);
-
-

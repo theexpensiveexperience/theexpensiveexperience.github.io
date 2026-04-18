@@ -18,13 +18,6 @@
 
 <body>
 
-  <!-- DYNAMIC BACKGROUND -->
-  <div id="ambient-bg"></div>
-
-  <div id="scanlines"></div>
-  <div id="flicker"></div>
-  <div id="vignette"></div>
-
   <div id="root">
 
     <!-- ── BOOT SCREEN ── -->
@@ -94,8 +87,8 @@
         <img id="city-img" src="" alt="Veste Coburg" />
         <div id="city-fade-top"></div>
         <div id="city-fade-bot"></div>
-        <div id="city-label">49.9°N · 10.9°E &nbsp;·&nbsp; Coburg, Deutschland</div>
       </div>
+      <div id="city-label">49.9°N · 10.9°E &nbsp;·&nbsp; Coburg, Deutschland</div>
 
       <!-- INHALT -->
       <div id="cv-body">
@@ -166,7 +159,6 @@
             <div class="proj-name" data-i18n="edu1-name">Technische Assistenten für Informatik</div>
             <div class="proj-meta" data-i18n="edu1-meta">09/2025 — heute · Lichtenfels, Bayern</div>
             <div class="proj-desc" data-i18n="edu1-desc1">Berufsschulausbildung mit Schwerpunkt Systemintegration, Netzwerktechnik und Softwareentwicklung.</div>
-            <div class="proj-desc" data-i18n="edu1-desc2">Sehr gute Leistungen in den Fächern Mathematik. Gute Leistungen in den Fächern Anwendungsentwicklung, Deutsch und Englisch.</div>
             <div class="proj-chips"><span class="chip" data-i18n="edu1-chip1">laufend</span><span class="chip">Lichtenfels</span></div>
           </div>
 
@@ -174,7 +166,6 @@
             <div class="proj-name" data-i18n="edu2-name">Studienkolleg — Hochschule Coburg</div>
             <div class="proj-meta" data-i18n="edu2-meta">08/2024 — 08/2025 · Coburg, Bayern</div>
             <div class="proj-desc" data-i18n="edu2-desc1">Studienvorbereitendes Kolleg; abgeschlossenes Brückenjahr zwischen vietnamesischem Schulabschluss und deutschem Hochschulsystem.</div>
-            <div class="proj-desc" data-i18n="edu2-desc2">Gute Leistungen in den Fächern Mathematik und Physik.</div>
             <div class="proj-chips"><span class="chip" data-i18n="edu2-chip1">abgeschlossen</span><span class="chip">Coburg</span></div>
           </div>
 
@@ -216,6 +207,12 @@
 
         <!-- TERMINAL -->
         <div id="cmd-wrap">
+          <div class="term-titlebar">
+            <span class="term-dot" style="background:#ff5f57"></span>
+            <span class="term-dot" style="background:#febc2e"></span>
+            <span class="term-dot" style="background:#28c840"></span>
+            <span class="term-title">scrypzt@portfolio — bash</span>
+          </div>
           <div class="cmd-hint" id="cmd-hint-el"><span data-i18n="cmd-hint-prefix">Befehle:</span> <b data-i18n="cmd-hint-cmds">whoami · kontakt · ausbildung · werkzeuge · zertifikate · sprachen · ehrenamt · clear</b>
           </div>
           <div id="cmd-history"></div>
