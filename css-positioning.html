@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Masterclass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css-positioning.css">
+</head>
+
+<body>
+
+    <nav id="main-nav">
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Concepts</a>
+            <a href="#">Examples</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>CSS Positioning</h1>
+            <p class="subtitle">Understanding how elements are placed in the document flow.</p>
+        </header>
+
+        <div class="demo-grid">
+
+            
+            <article class="card">
+                <h2>Static</h2>
+                <div class="code-snippet">position: static;</div>
+                <div class="visual-box static-demo">
+                    <div class="box box-1">1</div>
+                    <div class="box box-2">2</div>
+                    <div class="box box-3">3</div>
+                </div>
+            </article>
+
+            
+            <article class="card">
+                <h2>Relative</h2>
+                <div class="code-snippet">position: relative; top: 30px; left: 40px;</div>
+                <div class="visual-box relative-demo">
+                    <div class="box box-1">1</div>
+                    <div class="box box-2">2</div>
+                    <div class="box box-3">3</div>
+                </div>
+            </article>
+
+            
+            <article class="card">
+                <h2>Absolute</h2>
+                <div class="code-snippet">position: absolute; top: 20px; right: 20px;</div>
+                <div class="visual-box absolute-demo">
+                    <div class="box box-1">1</div>
+                    <div class="box box-2">2</div>
+                    <div class="box box-3">3</div>
+                </div>
+            </article>
+
+            
+            <article class="card">
+                <h2>Fixed</h2>
+                <div class="code-snippet">position: fixed; top: 20px; right: 20px;</div>
+                <div class="visual-box fixed-demo">
+                    <div class="box box-1">1</div>
+                    <div class="box box-2">Fixed</div>
+                    <div class="box box-3">3</div>
+                </div>
+            </article>
+
+            
+            <article class="card">
+                <h2>Sticky</h2>
+                <div class="code-snippet">position: sticky; top: 0px;</div>
+                <div class="visual-box sticky-demo">
+                    <div class="scroll-content">
+                        <div class="box box-1">1</div>
+                        <div class="box box-2">Sticky</div>
+                        <div class="box box-3">3</div>
+                        <div class="box box-ghost">4</div>
+                        <div class="box box-ghost">5</div>
+                    </div>
+                </div>
+            </article>
+
+            
+            <article class="card">
+                <h2>Z-Index</h2>
+                <div class="code-snippet">z-index: 10;</div>
+                <div class="visual-box z-index-demo">
+                    <div class="box box-1">1</div>
+                    <div class="box box-2">2</div>
+                    <div class="box box-3">3</div>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="long-content">
+            <div class="long-text-block">Scroll content to test navigation...</div>
+            <div class="long-text-block">Scroll content to test navigation...</div>
+            <div class="long-text-block">Scroll content to test navigation...</div>
+            <div class="long-text-block">Scroll content to test navigation...</div>
+            <div class="long-text-block">Scroll content to test navigation...</div>
+            <div class="long-text-block">Scroll content to test navigation...</div>
+        </div>
+    </div>
+
+    
+    <button class="cta-button">Click here to order</button>
+
+</body>
+
+</html>
