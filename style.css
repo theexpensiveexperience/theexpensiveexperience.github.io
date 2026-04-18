@@ -220,7 +220,7 @@ body {
 
 .hero-socials {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   padding-bottom: 6px;
   opacity: 0;
@@ -235,22 +235,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #484848;
-  transition: color 0.22s ease, transform 0.22s ease;
+  transition: transform 0.22s ease, filter 0.22s ease;
   text-decoration: none;
 }
 
 .social-link:hover {
-  color: #c8c8c8;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .social-link svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
   display: block;
+  transition: fill 0.22s ease;
 }
+
+/* ─── PER-ICON BRAND COLOURS ─────────────────────────────── */
+.social-link[aria-label="LinkedIn"] { color: #0A66C2; }
+.social-link[aria-label="LinkedIn"]:hover { filter: drop-shadow(0 0 6px rgba(10,102,194,0.7)); }
+
+.social-link[aria-label="GitHub"] { color: #e6edf3; }
+.social-link[aria-label="GitHub"]:hover { filter: drop-shadow(0 0 6px rgba(230,237,243,0.5)); }
+
+.social-link[aria-label="Gmail"] { color: #EA4335; }
+.social-link[aria-label="Gmail"]:hover { filter: drop-shadow(0 0 6px rgba(234,67,53,0.7)); }
+
+.social-link[aria-label="TryHackMe"] { color: #88CC14; }
+.social-link[aria-label="TryHackMe"]:hover { filter: drop-shadow(0 0 6px rgba(136,204,20,0.7)); }
 
 .hero-sub {
   font-size: 12.5px;
