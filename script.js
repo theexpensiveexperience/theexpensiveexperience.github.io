@@ -144,7 +144,7 @@ function startAmbient() {
 }
 
 /* ─── TERMINAL COMMANDS ──────────────────────────────────── */
-const CMDS = {
+const CMDS_DE = {
   whoami: `minh hieu nguyen  //  alfred
 IT-Schueler — Coburg, Deutschland
 E-Mail  →  nguyenhieu.231004@gmail.com
@@ -197,6 +197,143 @@ Gemeinnuetzige Recycling-Initiative:
   zertifikate · sprachen · ehrenamt · clear`,
 };
 
+const CMDS_EN = {
+  whoami: `minh hieu nguyen  //  alfred
+IT Student — Coburg, Germany
+Email   →  nguyenhieu.231004@gmail.com
+Web     →  alfrednguyen.me
+Goal: Vocational training IT Specialist System Integration`,
+
+  contact: `Email    →  nguyenhieu.231004@gmail.com
+GitHub   →  github.com/theexpensiveexperience
+LinkedIn →  linkedin.com/in/nguyen-minh-hieu-a3445121b
+Web      →  alfrednguyen.me
+Address  →  Kalenderweg, 96450 Coburg`,
+
+  education: `[ongoing]
+  Technical IT Assistant
+  → 09/2025 — present · Lichtenfels, Bavaria
+
+[completed]
+  Preparatory College — Coburg University
+  → 08/2024 — 08/2025 · Coburg, Bavaria
+
+  Secondary School — Le Quy Don High School
+  → 09/2019 — 09/2023 · Hanoi, Vietnam
+
+Goal:
+  Vocational training — IT Specialist System Integration`,
+
+  tools: `Security:  burp suite · nmap · wireshark
+Office:    Microsoft Word · Excel · PowerPoint`,
+
+  certs: `Google Cybersecurity (Professional Certificate)
+Proofpoint Certified AI Email Security
+[ongoing] PortSwigger Web Security Academy  68%`,
+
+  languages: `Vietnamese  — Native
+English     — C1 / B2
+German      — B2  (Goal: C1)`,
+
+  volunteer: `Plastikgreen — Co-Founder
+09/2023 — 12/2023 · Hanoi, Vietnam
+
+Non-profit recycling initiative:
+  · Plastic waste exchanged for plants
+  · Environmental awareness promoted in the community
+  · 50% of proceeds donated to homeless aid`,
+
+  clear: '__clear__',
+
+  help: `Commands:
+  whoami · contact · education · tools
+  certs · languages · volunteer · clear`,
+};
+
+let activeCmds = CMDS_DE;
+
+/* ─── TRANSLATIONS ───────────────────────────────────────── */
+let currentLang = 'de';
+const TRANS = {
+  de: {
+    'hero-name': 'Minh Hieu Nguyen',
+    'hero-loc':  'coburg, deutschland',
+    'hero-tag':  'IT-Schüler — Netzwerke/Systeme erkunden: Ausbildung zum Fachinformatiker Systemintegration/Anwendungsentwickler',
+    'sec-skills': 'Kenntnisse', 'sec-edu': 'Ausbildung', 'sec-proj': 'Projekte', 'sec-vol': 'Ehrenamtliche Tätigkeiten',
+    'grp-prog': 'Programmiersprachen', 'grp-os': 'Betriebssysteme & Plattformen',
+    'grp-tools': 'Software & Werkzeuge', 'grp-certs': 'Zertifikate', 'grp-lang': 'Sprachen',
+    'tag-vi': 'Vietnamesisch — Muttersprache', 'tag-en': 'Englisch — C1/B2', 'tag-de': 'Deutsch — B2',
+    'edu1-name': 'Technische Assistenten für Informatik', 'edu1-meta': '09/2025 — heute · Lichtenfels, Bayern',
+    'edu1-desc1': 'Berufsschulausbildung mit Schwerpunkt Systemintegration, Netzwerktechnik und Softwareentwicklung.',
+    'edu1-desc2': 'Sehr gute Leistungen in den Fächern Mathematik. Gute Leistungen in den Fächern Anwendungsentwicklung, Deutsch und Englisch.',
+    'edu1-chip1': 'laufend',
+    'edu2-name': 'Studienkolleg — Hochschule Coburg', 'edu2-meta': '08/2024 — 08/2025 · Coburg, Bayern',
+    'edu2-desc1': 'Studienvorbereitendes Kolleg; abgeschlossenes Brückenjahr zwischen vietnamesischem Schulabschluss und deutschem Hochschulsystem.',
+    'edu2-desc2': 'Gute Leistungen in den Fächern Mathematik und Physik.', 'edu2-chip1': 'abgeschlossen',
+    'edu3-name': 'Realschulabschluss — Le Quy Don Oberschule',
+    'edu3-desc': 'Mittlerer Schulabschluss (Realschulabschluss).', 'edu3-chip1': 'abgeschlossen',
+    'proj1-name': 'IT Home Lab — Virtualisierung & Sicherheit',
+    'proj1-desc': 'Selbst aufgebautes Virtualisierungslabor für praktische Netzwerk- und Sicherheitsübungen. Windows- und Linux-VMs für Systemintegration, Firewalls und Grundlagen des Penetrationstestings.',
+    'chip-netzwerk': 'Netzwerk',
+    'vol1-name': 'Plastikgreen — Mitbegründer',
+    'vol1-desc': 'Gemeinnützige Recycling-Initiative: Plastikabfälle wurden gegen Pflanzen getauscht, um das Umweltbewusstsein zu fördern. 50 % der Erlöse wurden an lokale Obdachlosenhilfe gespendet.',
+    'vol1-chip1': 'Mitbegründer', 'vol1-chip2': 'gemeinnützig',
+    'cmd-hint-prefix': 'Befehle:', 'cmd-hint-cmds': 'whoami · kontakt · ausbildung · werkzeuge · zertifikate · sprachen · ehrenamt · clear',
+  },
+  en: {
+    'hero-name': 'Minh Hieu Nguyen',
+    'hero-loc':  'coburg, germany',
+    'hero-tag':  'IT Student — Exploring networks/systems: Vocational training as IT Specialist (System Integration/Application Development)',
+    'sec-skills': 'Skills', 'sec-edu': 'Education', 'sec-proj': 'Projects', 'sec-vol': 'Volunteer Work',
+    'grp-prog': 'Programming Languages', 'grp-os': 'Operating Systems & Platforms',
+    'grp-tools': 'Software & Tools', 'grp-certs': 'Certificates', 'grp-lang': 'Languages',
+    'tag-vi': 'Vietnamese — Native', 'tag-en': 'English — C1/B2', 'tag-de': 'German — B2',
+    'edu1-name': 'Technical IT Assistant', 'edu1-meta': '09/2025 — present · Lichtenfels, Bavaria',
+    'edu1-desc1': 'Vocational school training with a focus on system integration, network technology, and software development.',
+    'edu1-desc2': 'Excellent grades in Mathematics. Good grades in Application Development, German, and English.',
+    'edu1-chip1': 'ongoing',
+    'edu2-name': 'Preparatory College — Coburg University', 'edu2-meta': '08/2024 — 08/2025 · Coburg, Bavaria',
+    'edu2-desc1': 'University preparatory college; completed bridging year between Vietnamese secondary education and the German university system.',
+    'edu2-desc2': 'Good grades in Mathematics and Physics.', 'edu2-chip1': 'completed',
+    'edu3-name': 'Secondary School Certificate — Le Quy Don High School',
+    'edu3-desc': 'Secondary school graduation (Realschulabschluss equivalent).', 'edu3-chip1': 'completed',
+    'proj1-name': 'IT Home Lab — Virtualization & Security',
+    'proj1-desc': 'Self-built virtualization lab for hands-on network and security exercises. Windows and Linux VMs for system integration, firewalls, and penetration testing fundamentals.',
+    'chip-netzwerk': 'Network',
+    'vol1-name': 'Plastikgreen — Co-Founder',
+    'vol1-desc': 'Non-profit recycling initiative: plastic waste exchanged for plants to raise environmental awareness. 50% of proceeds donated to local homeless aid.',
+    'vol1-chip1': 'Co-Founder', 'vol1-chip2': 'non-profit',
+    'cmd-hint-prefix': 'Commands:', 'cmd-hint-cmds': 'whoami · contact · education · tools · certs · languages · volunteer · clear',
+  },
+};
+
+function toggleLang() {
+  currentLang = currentLang === 'de' ? 'en' : 'de';
+  const t = TRANS[currentLang];
+  activeCmds = currentLang === 'de' ? CMDS_DE : CMDS_EN;
+
+  // Update button flag + code
+  const isEN = currentLang === 'en';
+  document.querySelector('#lang-btn .lang-flag').textContent = isEN ? '🇬🇧' : '🇩🇪';
+  $('lang-code').textContent = isEN ? 'EN' : 'DE';
+
+  // Update hero typed text directly
+  $('hero-name-el').textContent = t['hero-name'];
+  $('hero-loc').textContent     = t['hero-loc'];
+  $('hero-tag-el').textContent  = t['hero-tag'];
+
+  // Swap all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // Clear terminal output on language change
+  $('cmd-history').innerHTML = '';
+  $('cmd-out').textContent = '';
+  $('cmd-out').className = '';
+}
+
 const cmdIn = $('cmd-in');
 const cmdOut = $('cmd-out');
 const cmdHistory = $('cmd-history');
@@ -232,16 +369,19 @@ cmdIn.addEventListener('keydown', e => {
   echo.textContent = 'alfred@portfolio:~$ ' + val;
   cmdHistory.appendChild(echo);
 
-  if (CMDS[val] === '__clear__') {
+  if (activeCmds[val] === '__clear__') {
     cmdHistory.innerHTML = '';
     cmdOut.textContent = '';
     return;
   }
-  if (CMDS[val]) {
-    typeOutput(cmdOut, CMDS[val]);
+  if (activeCmds[val]) {
+    typeOutput(cmdOut, activeCmds[val]);
   } else {
     cmdOut.className = 'er';
-    cmdOut.textContent = `Befehl nicht gefunden: ${val}\nTipp: 'hilfe' fuer verfuegbare Befehle`;
+    const tip = currentLang === 'de'
+      ? `Befehl nicht gefunden: ${val}\nTipp: 'hilfe' fuer verfuegbare Befehle`
+      : `Command not found: ${val}\nTip: type 'help' for available commands`;
+    cmdOut.textContent = tip;
   }
   setTimeout(() => cmdHistory.scrollIntoView({ behavior: 'smooth', block: 'end' }), 100);
 });
@@ -256,3 +396,5 @@ function typeOutput(el, text) {
 
 /* ─── KICK OFF ───────────────────────────────────────────── */
 runBoot(0);
+
+
