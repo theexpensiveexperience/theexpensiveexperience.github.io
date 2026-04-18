@@ -1,5 +1,14 @@
-_site
-.sass-cache
-node_modules
-Gemfile.lock
-*.gem
+# Node
+node_modules/
+npm-debug.log*
+
+# SCSS compiled output (compile locally, don't commit)
+*.css.map
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
