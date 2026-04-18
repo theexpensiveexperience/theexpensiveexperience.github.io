@@ -261,8 +261,8 @@ body {
 .social-link[aria-label="Gmail"] { color: #EA4335; }
 .social-link[aria-label="Gmail"]:hover { filter: drop-shadow(0 0 6px rgba(234,67,53,0.7)); }
 
-.social-link[aria-label="TryHackMe"] { color: #88CC14; }
-.social-link[aria-label="TryHackMe"]:hover { filter: drop-shadow(0 0 6px rgba(136,204,20,0.7)); }
+.social-link[aria-label="TryHackMe"] { color: #E31D24; }
+.social-link[aria-label="TryHackMe"]:hover { filter: drop-shadow(0 0 6px rgba(227,29,36,0.7)); }
 
 .hero-sub {
   font-size: 12.5px;
