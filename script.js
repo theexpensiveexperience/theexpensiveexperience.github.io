@@ -89,7 +89,7 @@ function typeHero() {
     $('hero-socials').classList.add('visible');
     typeLine($('hero-loc'), 'coburg, deutschland', 5, () => {
       typeLine($('hero-tag-el'),
-        'IT-Schueler — Systeme erkunden & verstehen\nZiel: Ausbildung Fachinformatiker Systemintegration',
+        'IT-Schüler — Netzwerke/Systeme erkunden: Ausbildung zum Fachinformatiker Systemintegration/Anwendungsentwickler',
         4, () => { showCity(); });
     });
   });
