@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark circle background -->
+  <circle cx="50" cy="50" r="50" fill="#0d0d0d"/>
+
+  <!-- Partial circle outline with two gaps (mimicking the icon style) -->
+  <!-- Main arc: bottom-right gap -->
+  <path d="M 88 68 A 42 42 0 1 0 20 84"
+        fill="none" stroke="white" stroke-width="4.8" stroke-linecap="round"/>
+  <!-- Small upper-left arc gap (second broken segment) -->
+  <path d="M 12 30 A 42 42 0 0 0 15 24"
+        fill="none" stroke="white" stroke-width="4.8" stroke-linecap="round"/>
+
+  <!-- Left mountain (smaller peak) -->
+  <path d="M 13 73
+           C 16 71 20 70 23 70
+           L 26 66
+           C 27 65 28 63 30 60
+           L 36 44
+           C 37 42 38 43 39 45
+           L 43 54
+           C 44 56 45 56 46 54"
+        fill="none" stroke="white" stroke-width="4.5"
+        stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Snow patch on left peak -->
+  <path d="M 30 60 C 28 57 32 54 36 56"
+        fill="none" stroke="white" stroke-width="3.5"
+        stroke-linecap="round"/>
+
+  <!-- Right mountain (taller, main peak) -->
+  <path d="M 46 54
+           C 48 50 50 43 53 32
+           C 54 28 57 26 58 29
+           C 59 32 60 34 61 33
+           L 63 28
+           C 64 26 65 27 66 30
+           L 72 50
+           C 74 55 78 54 82 50
+           L 87 44"
+        fill="none" stroke="white" stroke-width="4.5"
+        stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Snow/rock patch on right peak -->
+  <path d="M 58 34 C 56 38 60 40 63 37"
+        fill="none" stroke="white" stroke-width="3.5"
+        stroke-linecap="round"/>
+
+  <!-- Ground / terrain waves -->
+  <path d="M 11 78
+           C 18 72 26 76 34 74
+           C 42 72 48 78 58 74
+           C 66 70 76 76 84 72
+           L 87 71"
+        fill="none" stroke="white" stroke-width="4"
+        stroke-linecap="round"/>
+
+  <!-- Water/ground detail (lower ripples) -->
+  <path d="M 18 84 C 26 80 34 85 44 82 C 52 79 60 84 68 82"
+        fill="none" stroke="white" stroke-width="3.2"
+        stroke-linecap="round"/>
+</svg>
